@@ -45,6 +45,7 @@ public static class Arrays
         // be implemented by another person.
 
         int n = data.Count;
+        // Create a list depending the quantity of the initial list
         List<int> rotated = new List<int>(new int[n]);
 
         // Place each element in its new rotated position
