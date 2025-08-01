@@ -1,4 +1,6 @@
-﻿public class DuplicateCounter
+﻿using System.Dynamic;
+
+public class DuplicateCounter
 {
     //Count how many duplicates are in a collection of data.
 
@@ -20,11 +22,48 @@
 
         Console.WriteLine($"Number of items in the collection: {data.Length}");
         Console.WriteLine($"Number of duplicates : {CountDuplicates(data)}");
+        Console.WriteLine($"Number of duplicates (Version 2) : {CountDuplicatesVersionTwo(data)}");
     }
 
     private static int CountDuplicates(int[] data)
     {
         // Add code here.
-        return 0;
+
+        //Create an empty hash 
+        HashSet<int> set = new HashSet<int>();
+
+        //Create a variable to store the quantity of duplicates
+        int numberDuplicates = 0;
+
+        //Iterate the data array
+        foreach (int i in data)
+        {
+            if (set.Contains(i))
+            {
+                numberDuplicates++;
+            }
+            else
+            {
+                set.Add(i);
+            }
+        }
+
+        return numberDuplicates;
+    }
+
+    private static int CountDuplicatesVersionTwo(int[] data)
+    {
+        HashSet<int> set = new HashSet<int>(data);
+        return data.Count() - set.Count();
+
+
+
+        // HashSet<int> set = new HashSet<int>();
+
+        // foreach (int i in data)
+        // {
+        //     set.Add(i);
+        // }
+        // return data.Count() - set.Count();
     }
 }
