@@ -12,5 +12,8 @@ public class Program
 
         Console.WriteLine("\n======================\nTranslator\n======================");
         Translator.Run();
+
+        Console.WriteLine("\n======================\nTranslator Solution\n======================");
+        TranslatorSolution.Run();
     }
 }
